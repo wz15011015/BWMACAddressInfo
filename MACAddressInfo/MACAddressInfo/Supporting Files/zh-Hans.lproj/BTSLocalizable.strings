@@ -1,0 +1,97 @@
+/* 
+  BTSLocalizable.strings
+  MACAddressInfo
+
+  Created by Hadlinks on 2019/1/4.
+  Copyright © 2019 BTStudio. All rights reserved.
+*/
+
+"About" = "关于";
+"According to the network card address query to the network card manufacturer information is as follows:" = "根据网卡地址查询到该网卡生产厂商的信息如下：";
+"Album" = "相册";
+"App introduce" = "　　本App是一款工具类应用程序，用于查询设备网卡地址的相关信息。输入您设备的网卡地址，即可查询该设备网卡的生产厂家信息，进而有可能判断设备类型，谨防山寨！";
+"App version:" = "客户端版本：";
+
+"Back" = "返回";
+
+"Camera" = "相机";
+"Cancel" = "取消";
+"Can't find network card address:" = "找不到网卡地址：";
+"Click to get the network card address of native connected WiFi" = "点击以获取本机所连接WiFi的网卡地址";
+"Click to get this device network card address" = "点击以获取本机网卡地址";
+"Company Info" = "公司信息";
+"Company List" = "公司列表";
+"Company OUI List" = "公司OUI列表";
+"Country List" = "国家列表";
+
+"Device Network Card Address" = "本机网卡地址";
+"Device model:" = "设备：";
+
+"Failed to get device network card address" = "获取本机网卡地址失败";
+"Failed to get WiFi network card address" = "获取WiFi网卡地址失败";
+"Features" = "版本说明";
+"Feedback" = "意见反馈";
+"Feedback2" = "去反馈";
+"FeedbackTopic1" = "数据缺失：搜索不到网卡地址";
+"FeedbackTopic2" = "功能异常：功能故障或不可用";
+"FeedbackTopic3" = "产品建议：用的不爽，我有建议";
+"FeedbackTopic4" = "其他问题";
+"Feedback send success" = "反馈发送成功";
+"Find network card address failed and feedback" = "🙁，搜索不到网卡地址信息，去反馈";
+
+"Help and Feedback" = "求助反馈";
+
+"I got it" = "好的，知道了";
+"Issue and comment" = "请补充详细问题和意见";
+"Issue or comment:" = "问题或意见：";
+
+"MAC" = "MAC";
+"MAC Address" = "MAC地址";
+"More" = "更多";
+
+"Network Card Address" = "网卡地址";
+"No.%ld" = "第%ld名";
+"Number of Companies" = "公司数量";
+
+"OK" = "好的";
+"OUI Info" = "OUI信息";
+"OUI List" = "OUI列表";
+
+"Please allow your location information to be used to get information about wiFi connected to your machine." = "请允许使用您的位置信息，以获取本机所连接WiFi的信息。";
+"Please connect to the WiFi network and try again" = "请连接到WiFi网络，再重试";
+"Please describe the issue in at least ten words" = "请输入不少于10个字的描述";
+"Please go to \"Settings -> Passwords & Accounts\", then add an account" = "请到”设置 -> 密码与账户”中添加一个账户";
+"Please provide related image(s)" = "请提供相关问题的截图或照片";
+"Please select a topic" = "请选择你遇到的问题点";
+"Please select a topic (required)" = "(必选)请选择您想反馈的问题点";
+
+"Query network card manufacturer information failed according to network card address" = "根据网卡地址查询网卡生产厂商信息失败！";
+
+"Rate" = "去评分";
+
+"Search network card address" = " 搜索网卡地址";
+"Send" = "发送";
+"skip" = "跳过";
+"Statistics" = "统计";
+"System version:" = "系统：";
+
+"The company has applied for a total of %ld OUI" = "该公司共申请了%ld个OUI";
+"The input format of network card address:" = "网卡地址输入格式：F0:76:6F:07:6F:CE 或 F0-76-6F-07-6F-CE 或 F0766F076FCE";
+"The network card address of native connected WiFi [%@] is:" = "本机所连接WiFi [%@] 的网卡地址是：";
+"The network card address of this device is:" = "本机的网卡地址是：";
+"Tips" = "温馨提示";
+
+"UnitOfCompany" = "家";
+"UnitOfOUI" = "个";
+"User feedback" = "用户反馈";
+
+"Version %@" = "版本号 %@";
+
+"What is network card address?" = "什么是网卡地址？";
+"What is OUI?" = "什么是OUI？";
+"WiFi Network Card Address" = "WiFi网卡地址";
+
+"<AD>" = "<广告>";
+"1. Ranking of companies (the top 20, according to the number of OUI requested by the company)" = "1、公司排名（前20名，根据该公司申请的OUI数量）";
+"2. Ranking of countries or regions (according to the number of companies applying for OUI in the country or the region)" = "2、国家或地区排名（根据该国家或地区中申请OUI的公司数量）";
+

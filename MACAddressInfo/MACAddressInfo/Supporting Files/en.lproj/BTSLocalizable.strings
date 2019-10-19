@@ -1,0 +1,97 @@
+/* 
+  BTSLocalizable.strings
+  MACAddressInfo
+
+  Created by Hadlinks on 2019/1/4.
+  Copyright © 2019 BTStudio. All rights reserved.
+*/
+
+"About" = "About";
+"According to the MAC address query to the network card manufacturer information is as follows:" = "According to the MAC address query to the network card manufacturer information is as follows:";
+"Album" = "Album";
+"App introduce" = "This app is a tool application that queries information about the address of the device's network card. Enter the network card address of your device, you can query the device network card manufacturer information, and then it is possible to judge the type of equipment, beware of copycat!";
+"App version:" = "App version:";
+
+"Back" = "Back";
+
+"Camera" = "Camera";
+"Cancel" = "Cancel";
+"Can't find network card address:" = "Can't find network card address:";
+"Click to get the MAC address of native connected WiFi" = "Click to get the MAC address of native connected WiFi";
+"Click to get this device MAC address" = "Click to get this device MAC address";
+"Company Info" = "Company Info";
+"Company List" = "Company List";
+"Company OUI List" = "Company OUI List";
+"Country List" = "Country List";
+
+"Device MAC" = "Device MAC Address";
+"Device model:" = "Device model:";
+
+"Failed to get device MAC address" = "Failed to get device MAC address";
+"Failed to get WiFi MAC address" = "Failed to get WiFi MAC address";
+"Features" = "Features";
+"Feedback" = "Feedback";
+"Feedback2" = "Feedback";
+"FeedbackTopic1" = "MAC address not found";
+"FeedbackTopic2" = "Errors or abnormal features";
+"FeedbackTopic3" = "Suggestions for improvement";
+"FeedbackTopic4" = "Other";
+"Feedback send success" = "Feedback send success";
+"Find network card address failed and feedback" = "Find network card address failed and feedback";
+
+"Help and Feedback" = "Help and Feedback";
+
+"I got it" = "I got it";
+"Issue and comment" = "Issue and comment";
+"Issue or comment:" = "Issue or comment:";
+
+"MAC" = "MAC";
+"MAC Address" = "MAC Address";
+"More" = "More";
+
+"Network Card Address" = "Network Card Address";
+"No.%ld" = "No.%ld";
+"Number of Companies" = "Number of Companies";
+
+"OK" = "OK";
+"OUI Info" = "OUI Info";
+"OUI List" = "OUI List";
+
+"Please allow your location information to be used to get information about wiFi connected to your machine." = "Please allow your location information to be used to get information about wiFi connected to your machine.";
+"Please connect to the WiFi network and try again" = "Please connect to the WiFi network and try again";
+"Please describe the issue in at least ten words" = "Please describe the issue in at least ten words";
+"Please go to \"Settings -> Passwords & Accounts\", then add an account" = "Please go to \"Settings -> Passwords & Accounts\", then add an account";
+"Please provide related image(s)" = "Please provide related image(s)";
+"Please select a topic" = "Please select a topic";
+"Please select a topic (required)" = "Please select a topic (required)";
+
+"Query network card manufacturer information failed according to MAC address" = "Query network card manufacturer information failed according to MAC address";
+
+"Rate" = "Rate";
+
+"Search MAC address" = " Search MAC address";
+"Send" = "Send";
+"skip" = "skip";
+"Statistics" = "Statistics";
+"System version:" = "System version:";
+
+"The company has applied for a total of %ld OUI" = "The company has applied for a total of %ld OUI";
+"The input format of MAC address:" = "The input format of MAC address: F0:76:6F:07:6F:CE or F0-76-6F-07-6F-CE or F0766F076FCE";
+"The MAC address of native connected WiFi [%@] is:" = "The MAC address of native connected WiFi [%@] is:";
+"The MAC address of this device is:" = "The MAC address of this device is:";
+"Tips" = "Tips";
+
+"UnitOfCompany" = "";
+"UnitOfOUI" = "";
+"User feedback" = "User feedback";
+
+"Version %@" = "Version %@";
+
+"What is MAC address?" = "What is MAC address?";
+"What is OUI?" = "What is OUI?";
+"WiFi MAC" = "WiFi MAC Address";
+
+"<AD>" = "<AD>";
+"1. Ranking of companies (the top 20, according to the number of OUI requested by the company)" = "1. Ranking of companies (the top 20, according to the number of OUI requested by the company)";
+"2. Ranking of countries (according to the number of companies applying for OUI in the country)" = "2. Ranking of countries (according to the number of companies applying for OUI in the country)";
+

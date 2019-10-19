@@ -1,0 +1,22 @@
+platform :ios, '9.0'
+
+# 1. 如果在Podfile文件里不使用 use_frameworks! 则是会生成相应的 .a文件（静态链接库），通过 static libraries 这个方式来管理pod的代码。
+# 2. 如果使用了use_frameworks! 则cocoapods 会生成相应的 .frameworks文件（动态链接库：实际内容为 Header + 动态链接库 + 资源文件），使用 dynamic frameworks 来取代 static libraries 方式。
+# 3. 用cocoapods 导入swift 框架到swift项目和OC项目都必须要: use_frameworks!
+# 4. 使用静态链接库时,导入头文件: #import "xxx.h"; 使用动态链接库时,导入头文件: #import <xxx/xxx.h>
+
+# 使用动态库 (动态链接库实际内容为: Header + 动态链接库 + 资源文件)
+use_frameworks!
+
+target 'MACAddressInfo' do
+
+pod 'AFNetworking'
+pod 'Charts'
+pod 'FMDB/SQLCipher'
+pod 'lottie-ios'
+pod 'MBProgressHUD'
+pod 'MJExtension'
+pod 'MJRefresh'
+pod 'SDWebImage'
+
+end

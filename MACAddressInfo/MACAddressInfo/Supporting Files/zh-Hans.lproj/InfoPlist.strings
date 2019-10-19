@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  MACAddressInfo
+
+  Created by Hadlinks on 2019/1/4.
+  Copyright © 2019 BTStudio. All rights reserved.
+*/
+
+CFBundleDisplayName = "网卡地址";
+
+NSCameraUsageDescription = "App需要访问您的相机，以便您正常使用扫码、拍照等服务。";
+NSPhotoLibraryUsageDescription = "App需要访问您的相册，以便您正常使用扫码、图片保存、图片上传等服务。";
+
+NSLocationWhenInUseUsageDescription = "请允许使用您的位置信息，以获取您所连接WiFi的名称。";
+NSLocationAlwaysAndWhenInUseUsageDescription = "请允许使用您的位置信息，以获取您所连接WiFi的名称。";

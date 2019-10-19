@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BTSAdViewController">
+            <connections>
+                <outlet property="adImageView" destination="V5z-gP-fMa" id="84c-wx-eX4"/>
+                <outlet property="adMarkLabel" destination="VoJ-WN-kDH" id="47H-sx-VRb"/>
+                <outlet property="skipButton" destination="OA8-GO-sBY" id="sTU-Xe-IJn"/>
+                <outlet property="skipButtonTop" destination="JmY-QJ-qqP" id="b3D-9L-sm8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XA0-Ej-e2Z">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="568"/>
+                    <subviews>
+                        <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V5z-gP-fMa">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="568"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="RbP-Kq-BfS" appends="YES" id="QK9-3M-wfB"/>
+                            </connections>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OA8-GO-sBY">
+                            <rect key="frame" x="295" y="15" width="65" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="65" id="FRa-wH-NZn"/>
+                                <constraint firstAttribute="height" constant="30" id="hfx-IA-WeN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="Skip" backgroundImage="ad_skip_button"/>
+                            <connections>
+                                <action selector="clickSkipAd:" destination="-1" eventType="touchUpInside" id="Bua-JB-JNc"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;AD&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoJ-WN-kDH">
+                            <rect key="frame" x="325" y="537" width="35" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="OA8-GO-sBY" firstAttribute="top" secondItem="XA0-Ej-e2Z" secondAttribute="top" constant="15" id="JmY-QJ-qqP"/>
+                        <constraint firstItem="V5z-gP-fMa" firstAttribute="top" secondItem="XA0-Ej-e2Z" secondAttribute="top" id="Ls9-cy-PuM"/>
+                        <constraint firstAttribute="trailing" secondItem="OA8-GO-sBY" secondAttribute="trailing" constant="15" id="R1v-o6-zIH"/>
+                        <constraint firstAttribute="bottom" secondItem="V5z-gP-fMa" secondAttribute="bottom" id="Y9a-zv-D70"/>
+                        <constraint firstItem="V5z-gP-fMa" firstAttribute="leading" secondItem="XA0-Ej-e2Z" secondAttribute="leading" id="YmN-Dh-vOH"/>
+                        <constraint firstAttribute="bottom" secondItem="VoJ-WN-kDH" secondAttribute="bottom" constant="15" id="ddI-WK-qs5"/>
+                        <constraint firstAttribute="trailing" secondItem="V5z-gP-fMa" secondAttribute="trailing" id="kww-dJ-vf2"/>
+                        <constraint firstAttribute="trailing" secondItem="VoJ-WN-kDH" secondAttribute="trailing" constant="15" id="yZY-oo-cmN"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59y-fS-qkH">
+                    <rect key="frame" x="0.0" y="568" width="375" height="99"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTStudio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIn-Hy-Ru5">
+                            <rect key="frame" x="179" y="39.5" width="72.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <color key="textColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_roundrect_icon" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-vB-tuZ">
+                            <rect key="frame" x="124" y="27" width="45" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="KNY-6l-Zqt"/>
+                                <constraint firstAttribute="width" constant="45" id="qRI-jA-tEX"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="99" id="6QQ-BP-fjF"/>
+                        <constraint firstItem="NIn-Hy-Ru5" firstAttribute="leading" secondItem="WgK-vB-tuZ" secondAttribute="trailing" constant="10" id="8yT-VT-8M7"/>
+                        <constraint firstItem="NIn-Hy-Ru5" firstAttribute="centerY" secondItem="WgK-vB-tuZ" secondAttribute="centerY" id="I6z-5K-Uhj"/>
+                        <constraint firstItem="WgK-vB-tuZ" firstAttribute="centerX" secondItem="59y-fS-qkH" secondAttribute="centerX" multiplier="0.78:1" id="cDP-fe-iqJ"/>
+                        <constraint firstItem="WgK-vB-tuZ" firstAttribute="centerY" secondItem="59y-fS-qkH" secondAttribute="centerY" id="i46-LB-Xdw"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="59y-fS-qkH" firstAttribute="top" secondItem="XA0-Ej-e2Z" secondAttribute="bottom" id="4Qh-mR-hDJ"/>
+                <constraint firstItem="59y-fS-qkH" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="MtX-BL-leH"/>
+                <constraint firstItem="59y-fS-qkH" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="VK2-gp-ezi"/>
+                <constraint firstItem="XA0-Ej-e2Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZQl-OH-WW5"/>
+                <constraint firstItem="59y-fS-qkH" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="gWz-ah-nIY"/>
+                <constraint firstItem="XA0-Ej-e2Z" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="qT6-xe-lA7"/>
+                <constraint firstItem="XA0-Ej-e2Z" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="qaD-eI-t36"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
+        </view>
+        <tapGestureRecognizer id="RbP-Kq-BfS">
+            <connections>
+                <action selector="clickAd:" destination="-1" id="ZfH-My-gd1"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="ad_skip_button" width="65" height="30"/>
+        <image name="app_roundrect_icon" width="60" height="60"/>
+    </resources>
+</document>
