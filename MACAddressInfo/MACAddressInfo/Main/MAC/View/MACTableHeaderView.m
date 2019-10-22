@@ -13,8 +13,10 @@
 
 /** 提示Label */
 @property (nonatomic, strong) UILabel *hintLabel;
+
 /** MAC地址Label */
 @property (nonatomic, strong) UILabel *macAddressLabel;
+
 /** 提示Label2 */
 @property (nonatomic, strong) UILabel *hintLabel2;
 
@@ -99,6 +101,10 @@
         _macAddressLabel = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, 30)];
         _macAddressLabel.textColor = THEME_COLOR;
         _macAddressLabel.font = [UIFont boldSystemFontOfSize:18];
+        _macAddressLabel.userInteractionEnabled = YES;
+
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pasteEvent:)];
+        [_macAddressLabel addGestureRecognizer:tapGestureRecognizer];
     }
     return _macAddressLabel;
 }
@@ -117,6 +123,48 @@
     return _hintLabel2;
 }
 
+
+#pragma mark - Event
+
+- (void)pasteEvent:(UIGestureRecognizer *)gestureRecognizer {
+    UIView *view = gestureRecognizer.view;
+    
+    // 一定要调用这个方法
+    [self becomeFirstResponder];
+    
+    // 创建菜单控制器
+    UIMenuController *menuvc = [UIMenuController sharedMenuController];
+    if (menuvc.menuVisible) { // 如果菜单控制器已经显示,则不再次去显示
+        return;
+    }
+    UIMenuItem *menuItem1 = [[UIMenuItem alloc] initWithTitle:BTSLocalizedString(@"Copy", nil) action:@selector(firstItemAction:)];
+    menuvc.menuItems = @[menuItem1];
+    [menuvc setTargetRect:CGRectMake(CGRectGetMidX(view.frame), CGRectGetMinY(view.frame) + 10, 0, 0) inView:self];
+    [menuvc setMenuVisible:YES animated:YES];
+}
+
+- (void)firstItemAction:(UIMenuItem *)item {
+    NSString *macAddress = self.macAddressLabel.text;
+    
+    // 通过系统的粘贴板,记录下需要传递的数据
+    [UIPasteboard generalPasteboard].string = macAddress;
+}
+
+
+#pragma mark - 创建 UIMenuController 必须实现的关键方法
+
+// 自己能否成为第一响应者
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+// 能否处理Action事件
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    if (action == @selector(firstItemAction:)) {
+        return YES;
+    }
+    return [super canPerformAction:action withSender:sender];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

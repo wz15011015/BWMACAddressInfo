@@ -169,7 +169,7 @@ static NSString *WKWebViewProgressKey = @"estimatedProgress";
         
         // 2. 创建WKWebView
         CGFloat webViewH = BTSHEIGHT - BTSNavBarHeightAdded - BTSTabBarHeightAdded - NAVIGATION_BAR_HEIGHT;
-        _wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT, BTSWIDTH, webViewH) configuration:config];
+        _wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, BTSWIDTH, webViewH) configuration:config];
         _wkWebView.navigationDelegate = self;
         _wkWebView.allowsBackForwardNavigationGestures = YES;
         _wkWebView.allowsLinkPreview = YES;

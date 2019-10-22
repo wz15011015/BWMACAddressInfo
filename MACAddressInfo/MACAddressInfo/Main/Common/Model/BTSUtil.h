@@ -58,20 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)playMusicalNoteWithNumber:(NSInteger)number;
 
-
-#pragma mark - 调试方法
-
-/** 从.txt文件中解析OUI数据 */
-+ (void)loadOUIDataFromTxt;
-
-/** 从.txt文件中统计OUI数据 */
-+ (void)loadOUIDataStatisticsFromTxt;
-
-+ (void)OUIDataDebug;
-
-/** 统计每个公司的OUI列表 */
-+ (void)OUIDataCountEachCompanyOUIList;
-
 @end
 
 NS_ASSUME_NONNULL_END

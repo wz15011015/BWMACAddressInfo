@@ -17,6 +17,7 @@
 #import "CompanyWebsiteViewController.h"
 #import "FeedbackViewController.h"
 #import <Lottie/Lottie.h>
+#import "OUIDataTest.h"
 
 @interface MACViewController () <UIScrollViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, JMDropMenuDelegate>
 
@@ -36,10 +37,10 @@
     
     [self loadUI];
     
-//    [BTSUtil loadOUIDataFromTxt];
-//    [BTSUtil loadOUIDataStatisticsFromTxt];
-//    [BTSUtil OUIDataDebug];
-//    [BTSUtil OUIDataCountEachCompanyOUIList];
+//    [OUIDataTest loadOUIDataFromTxt];
+//    [OUIDataTest loadOUIDataStatisticsFromTxt];
+//    [OUIDataTest OUIDataDebugForCompany];
+//    [OUIDataTest OUIDataCountEachCompanyOUIList];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

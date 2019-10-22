@@ -39,7 +39,7 @@
 }
 
 - (CGFloat)accurateYForMenuVC {
-    CGFloat menuVCY = NAVIGATION_BAR_HEIGHT;
+    CGFloat menuVCY = 0;
     
     NSArray *visibleCells = self.tableView.visibleCells;
     // 第一个可视Cell

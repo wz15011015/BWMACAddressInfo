@@ -65,6 +65,7 @@
 		0697D37F21E355AC0053AFA3 /* OUIInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0697D37D21E355AC0053AFA3 /* OUIInfoCell.xib */; };
 		069C50E821ED6798009805AF /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069C50E621ED6798009805AF /* StatisticsViewController.m */; };
 		069C50E921ED6798009805AF /* StatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 069C50E721ED6798009805AF /* StatisticsViewController.xib */; };
+		069C7486235EC976000C6878 /* OUIDataTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 069C7485235EC976000C6878 /* OUIDataTest.m */; };
 		06A8289521EF78990015C16B /* StatisticsChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A8289321EF78990015C16B /* StatisticsChartCell.m */; };
 		06A8289621EF78990015C16B /* StatisticsChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06A8289421EF78990015C16B /* StatisticsChartCell.xib */; };
 		06AAA5FD22153A5000BCE36C /* BTSMACOUI.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 06AAA5FC22153A5000BCE36C /* BTSMACOUI.sqlite */; };
@@ -221,6 +222,8 @@
 		069C50E521ED6798009805AF /* StatisticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
 		069C50E621ED6798009805AF /* StatisticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
 		069C50E721ED6798009805AF /* StatisticsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsViewController.xib; sourceTree = "<group>"; };
+		069C7484235EC976000C6878 /* OUIDataTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OUIDataTest.h; sourceTree = "<group>"; };
+		069C7485235EC976000C6878 /* OUIDataTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OUIDataTest.m; sourceTree = "<group>"; };
 		06A8289221EF78990015C16B /* StatisticsChartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatisticsChartCell.h; sourceTree = "<group>"; };
 		06A8289321EF78990015C16B /* StatisticsChartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatisticsChartCell.m; sourceTree = "<group>"; };
 		06A8289421EF78990015C16B /* StatisticsChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsChartCell.xib; sourceTree = "<group>"; };
@@ -379,6 +382,8 @@
 				0643A55121EE2A810085FA3D /* ChartAxisValueFormatter.m */,
 				0643A55421EEB8930085FA3D /* StatisticsManager.h */,
 				0643A55521EEB8930085FA3D /* StatisticsManager.m */,
+				069C7484235EC976000C6878 /* OUIDataTest.h */,
+				069C7485235EC976000C6878 /* OUIDataTest.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1185,6 +1190,7 @@
 				06DB129121F84808002B2003 /* UIDevice+Extension.m in Sources */,
 				06B5A85921E041460087CBED /* BTSDatabaseManager.m in Sources */,
 				0693E44D21F15DA300483E44 /* StatisticsHeaderView.m in Sources */,
+				069C7486235EC976000C6878 /* OUIDataTest.m in Sources */,
 				BC2B857D21F4A84E00639F3E /* CompanyWebsiteViewController.m in Sources */,
 				0643A54D21E597C900FF8B15 /* DeviceMACViewController.m in Sources */,
 				06DB129421F84B5A002B2003 /* NSBundle+Extension.m in Sources */,

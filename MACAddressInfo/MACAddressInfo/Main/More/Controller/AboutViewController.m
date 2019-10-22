@@ -160,7 +160,7 @@
 - (AVSpeechSynthesisVoice *)voice {
     if (!_voice) {
         NSString *voiceLanguage = @"en-US";
-        NSString *appLanguageCode = [[NSUserDefaults standardUserDefaults] objectForKey:UserDefaultsAppLanguageCodeKey]; // 获取本地存储的语言
+        NSString *appLanguageCode = [BTSUtil appCurrentLanguageCode];
         if ([appLanguageCode isEqualToString:@"zh"]) {
             voiceLanguage = @"zh-CN";
         }

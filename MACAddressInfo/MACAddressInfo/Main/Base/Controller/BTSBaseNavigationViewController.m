@@ -34,7 +34,7 @@
     // 3. 导航栏着色颜色
 //    [UINavigationBar appearance].tintColor = THEME_COLOR;
     // 4. 导航栏是否为半透明效果
-//    [UINavigationBar appearance].translucent = NO;
+    [UINavigationBar appearance].translucent = NO;
 }
 
 

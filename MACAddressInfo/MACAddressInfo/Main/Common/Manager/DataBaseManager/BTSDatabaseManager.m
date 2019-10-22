@@ -1092,6 +1092,7 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
      加密后的数据库暂时没有找到可以打开的GUI工具查看（MesaSQLite），即使输入secretKey也无法查看，不知道为何
      */
     NSString *databasePath = [[NSBundle mainBundle] pathForResource:MACOUISqliteName ofType:@"sqlite"];
+    NSLog(@"数据库路径: %@", databasePath);
     if (!databasePath) {
         NSLog(@"数据库打开失败,数据库文件不存在！");
         return NO;
