@@ -12,6 +12,7 @@
 #import "OUIInfoCell.h"
 #import "MACTableHeaderView.h"
 #import "CompanyWebsiteViewController.h"
+#import "CompanyLocationViewController.h"
 #import "FeedbackViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
@@ -211,6 +212,10 @@
     OUIInfoType infoType = [OUIInfoCell infoTypeForOUIInfoWihtIndex:indexPath.row];
     if (infoType == OUIInfoCompany) {
         CompanyWebsiteViewController *vc = [[CompanyWebsiteViewController alloc] init];
+        vc.company = self.resultOUI.company;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (infoType == OUIInfoStreet) {
+        CompanyLocationViewController *vc = [[CompanyLocationViewController alloc] init];
         vc.company = self.resultOUI.company;
         [self.navigationController pushViewController:vc animated:YES];
     }

@@ -16,6 +16,7 @@ NSString *const OUIInfoCellID = @"OUIInfoCellIdentifier";
 @property (nonatomic, weak) IBOutlet UIImageView *iconImageView;
 @property (nonatomic, weak) IBOutlet UILabel *infoLabel;
 @property (nonatomic, weak) IBOutlet UILabel *countLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *arrowImageView;
 
 @end
 
@@ -23,7 +24,8 @@ NSString *const OUIInfoCellID = @"OUIInfoCellIdentifier";
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    self.arrowImageView.hidden = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -44,22 +46,29 @@ NSString *const OUIInfoCellID = @"OUIInfoCellIdentifier";
     if (self.infoType == OUIInfoOUICode) {
         iconImage = [UIImage imageNamed:@"oui_code"];
         info = ouiModel.oui;
+        
     } else if (self.infoType == OUIInfoCompany) {
         iconImage = [UIImage imageNamed:@"oui_company"];
         info = company.name_local;
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.arrowImageView.hidden = NO;
+        
     } else if (self.infoType == OUIInfoStreet) {
         iconImage = [UIImage imageNamed:@"oui_street"];
         info = company.street_local;
+        self.arrowImageView.hidden = NO;
+        
     } else if (self.infoType == OUIInfoCity) {
         iconImage = [UIImage imageNamed:@"oui_city"];
         info = company.city_local;
+        
     } else if (self.infoType == OUIInfoProvince) {
         iconImage = [UIImage imageNamed:@"oui_address"];
         info = company.province_local;
+        
     } else if (self.infoType == OUIInfoPostCode) {
         iconImage = [UIImage imageNamed:@"oui_postCode"];
         info = company.postCode;
+        
     } else if (self.infoType == OUIInfoCountryCode) {
         iconImage = [UIImage imageNamed:@"oui_countryCode"];
         info = company.country_local;
@@ -71,30 +80,34 @@ NSString *const OUIInfoCellID = @"OUIInfoCellIdentifier";
 - (void)setCompany:(CompanyModel *)company {
     _company = company;
     
-//    self.iconImageView.image = [UIImage imageNamed:@"oui_company"];
-//    self.infoLabel.text = company.name_local;
-    
     UIImage *iconImage = [UIImage imageNamed:@"oui_code"];
     NSString *info = @"";
     if (self.infoType == OUIInfoOUICode) {
         iconImage = [UIImage imageNamed:@"oui_code"];
 //        info = ouiModel.oui;
+        
     } else if (self.infoType == OUIInfoCompany) {
         iconImage = [UIImage imageNamed:@"oui_company"];
         info = company.name_local;
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.arrowImageView.hidden = NO;
+        
     } else if (self.infoType == OUIInfoStreet) {
         iconImage = [UIImage imageNamed:@"oui_street"];
         info = company.street_local;
+        self.arrowImageView.hidden = NO;
+        
     } else if (self.infoType == OUIInfoCity) {
         iconImage = [UIImage imageNamed:@"oui_city"];
         info = company.city_local;
+        
     } else if (self.infoType == OUIInfoProvince) {
         iconImage = [UIImage imageNamed:@"oui_address"];
         info = company.province_local;
+        
     } else if (self.infoType == OUIInfoPostCode) {
         iconImage = [UIImage imageNamed:@"oui_postCode"];
         info = company.postCode;
+        
     } else if (self.infoType == OUIInfoCountryCode) {
         iconImage = [UIImage imageNamed:@"oui_countryCode"];
         info = company.country_local;

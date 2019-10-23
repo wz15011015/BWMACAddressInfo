@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="51.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oui_company" translatesAutoresizingMaskIntoConstraints="NO" id="RJi-c4-Ak5">
@@ -27,7 +25,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ly5-8t-hxB">
-                        <rect key="frame" x="55" y="0.0" width="250" height="51.5"/>
+                        <rect key="frame" x="55" y="0.0" width="235" height="52"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -41,20 +39,26 @@
                         <color key="textColor" red="0.87450980392156863" green="0.49411764705882355" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="KOS-TK-PrS">
+                        <rect key="frame" x="297" y="19.5" width="8" height="13"/>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="ly5-8t-hxB" secondAttribute="trailing" constant="15" id="0ad-Qj-LAj"/>
+                    <constraint firstAttribute="trailing" secondItem="ly5-8t-hxB" secondAttribute="trailing" constant="30" id="0ad-Qj-LAj"/>
                     <constraint firstItem="RJi-c4-Ak5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="7Uv-Ag-M51"/>
                     <constraint firstItem="RJi-c4-Ak5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8va-ft-61k"/>
                     <constraint firstItem="Zlg-yw-vIp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Lht-G7-8Hf"/>
+                    <constraint firstAttribute="trailing" secondItem="KOS-TK-PrS" secondAttribute="trailing" constant="15" id="adv-5g-x0L"/>
                     <constraint firstAttribute="trailing" secondItem="Zlg-yw-vIp" secondAttribute="trailing" constant="22" id="hdq-Bx-tmy"/>
                     <constraint firstItem="ly5-8t-hxB" firstAttribute="leading" secondItem="RJi-c4-Ak5" secondAttribute="trailing" constant="16" id="j0N-qx-v7M"/>
                     <constraint firstAttribute="bottom" secondItem="ly5-8t-hxB" secondAttribute="bottom" id="qdN-of-uKX"/>
                     <constraint firstItem="ly5-8t-hxB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uwv-Q3-nF7"/>
+                    <constraint firstItem="KOS-TK-PrS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="w07-l8-lpk"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="arrowImageView" destination="KOS-TK-PrS" id="PXt-rq-PSL"/>
                 <outlet property="countLabel" destination="Zlg-yw-vIp" id="ias-Fl-Moo"/>
                 <outlet property="iconImageView" destination="RJi-c4-Ak5" id="6AB-6R-lyJ"/>
                 <outlet property="infoLabel" destination="ly5-8t-hxB" id="xin-iJ-ZJg"/>
@@ -63,6 +67,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="cell_arrow_right" width="8" height="13"/>
         <image name="oui_company" width="24" height="22"/>
     </resources>
 </document>

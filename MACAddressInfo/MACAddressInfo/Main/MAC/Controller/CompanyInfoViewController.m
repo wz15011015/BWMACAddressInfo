@@ -11,6 +11,7 @@
 #import "OUIInfoCell.h"
 #import "CompanyOUIsCell.h"
 #import "CompanyWebsiteViewController.h"
+#import "CompanyLocationViewController.h"
 #import "CompanyOUIsViewController.h"
 
 @interface CompanyInfoViewController ()
@@ -84,6 +85,10 @@
         OUIInfoType infoType = [OUIInfoCell infoTypeForCompanyInfoWihtIndex:indexPath.row];
         if (infoType == OUIInfoCompany) {
             CompanyWebsiteViewController *vc = [[CompanyWebsiteViewController alloc] init];
+            vc.company = self.company;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if (infoType == OUIInfoStreet) {
+            CompanyLocationViewController *vc = [[CompanyLocationViewController alloc] init];
             vc.company = self.company;
             [self.navigationController pushViewController:vc animated:YES];
         }

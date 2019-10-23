@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -29,6 +29,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>App need access to your camera so you can use services such as scan codes, take photos, and more.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow your location information to be used to get the name of the WiFi you are connected to.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow your location information to be used to get the name of the WiFi you are connected to.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>App need access to your albums so you can use services such as scan codes, picture saves, image uploads, and more.</string>
 	<key>UILaunchStoryboardName</key>
@@ -48,10 +52,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow your location information to be used to get the name of the WiFi you are connected to.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Allow your location information to be used to get the name of the WiFi you are connected to.</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 </dict>

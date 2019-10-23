@@ -12,7 +12,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>1.0.0(3)</string>
+			<string>1.0.0($(CURRENT_PROJECT_VERSION))</string>
 			<key>Key</key>
 			<string>VersionIdentifier</string>
 			<key>Title</key>

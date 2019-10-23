@@ -139,6 +139,7 @@
     }
     UIMenuItem *menuItem1 = [[UIMenuItem alloc] initWithTitle:BTSLocalizedString(@"Copy", nil) action:@selector(firstItemAction:)];
     menuvc.menuItems = @[menuItem1];
+    menuvc.arrowDirection = UIMenuControllerArrowDown;
     [menuvc setTargetRect:CGRectMake(CGRectGetMidX(view.frame), CGRectGetMinY(view.frame) + 10, 0, 0) inView:self];
     [menuvc setMenuVisible:YES animated:YES];
 }
