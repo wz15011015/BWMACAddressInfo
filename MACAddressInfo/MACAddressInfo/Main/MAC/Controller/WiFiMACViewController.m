@@ -122,8 +122,8 @@
     // 获取WiFi的名称和MAC地址
     self.wifiName = [WiFiManagerInstance wifiName];
     self.wifiMACAddress = [WiFiManagerInstance wifiMacAddress];
-//    self.wifiName = @"CMCC-BTStudio";
-//    self.wifiMACAddress = @"00:2E:C7:9F:A1:E8";
+    self.wifiName = @"CMCC-BTStudio";
+    self.wifiMACAddress = @"D4:40:F0:9A:02:A8";
     if (IS_NULL_STRING(self.wifiMACAddress)) {
         self.scanHintLabel.text = BTSLocalizedString(@"Failed to get WiFi network card address", nil);
         return;

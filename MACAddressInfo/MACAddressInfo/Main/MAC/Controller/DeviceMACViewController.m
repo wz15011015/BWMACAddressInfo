@@ -100,7 +100,7 @@
     
     // 获取设备的MAC地址
     self.macAddress = [MacAddressManager getMacAddressFromMDNS];
-//    self.macAddress = @"9C:E3:3F:1C:D6:AA";
+    self.macAddress = @"F0:76:6F:07:6F:CE";
     if (IS_NULL_STRING(self.macAddress)) {
         self.scanHintLabel.text = BTSLocalizedString(@"Failed to get device network card address", nil);
         return;
