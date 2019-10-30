@@ -23,5 +23,5 @@
 
 ## License
 
-BWMACAddressInfo is released under the [MIT License](https://github.com/wz15011015github/BTStudio/blob/master/License/MITLicense.html). See LICENSE for details.
+BWMACAddressInfo is released under the MIT License. See [LICENSE](https://github.com/wz15011015/BTStudio/blob/master/License/MITLicense.html) for details.
  
