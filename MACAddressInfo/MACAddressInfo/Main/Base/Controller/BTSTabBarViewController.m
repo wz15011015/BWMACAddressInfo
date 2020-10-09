@@ -35,6 +35,14 @@
     
     MoreViewController *moreVC = [[MoreViewController alloc] init];
     [self addChildViewController:moreVC tabBarTitle:BTSLocalizedString(@"More", nil) navBarTitle:BTSLocalizedString(@"More", nil) imageName:@"tab_bar_more" selectedImageName:@"tab_bar_more_selected"];
+    
+    
+    // 适配处理:
+    // 在iOS13及以后系统中 未选中TabBar按钮 的文字显示为蓝色, 即使设置了UIControlStateNormal状态时的颜色,
+    // 针对该问题,需要调用 setUnselectedItemTintColor: 方法设置未选中tabBarItem的文字颜色.
+    if (@available(iOS 13.0, *)) {
+        [[UITabBar appearance] setUnselectedItemTintColor:RGB(164, 164, 164)];
+    }
 }
 
 - (void)addChildViewController:(UIViewController *)childController tabBarTitle:(NSString *)tabBarTitle navBarTitle:(NSString *)navBarTitle imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName {

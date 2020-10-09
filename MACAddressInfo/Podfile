@@ -10,13 +10,13 @@ use_frameworks!
 
 target 'MACAddressInfo' do
 
-pod 'AFNetworking'
-pod 'Charts'
-pod 'FMDB/SQLCipher'
-pod 'lottie-ios'
-pod 'MBProgressHUD'
-pod 'MJExtension'
-pod 'MJRefresh'
-pod 'SDWebImage'
+    pod 'AFNetworking'
+    pod 'Charts'
+    pod 'FMDB/SQLCipher'
+    pod 'lottie-ios'
+    pod 'MBProgressHUD'
+    pod 'MJExtension'
+    pod 'MJRefresh'
+    pod 'SDWebImage'
 
 end

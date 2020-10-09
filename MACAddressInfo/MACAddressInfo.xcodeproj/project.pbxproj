@@ -737,8 +737,6 @@
 			isa = PBXGroup;
 			children = (
 				06BC572121DEF16A0004F827 /* Controller */,
-				06BC572221DEF16A0004F827 /* Model */,
-				06BC572321DEF16A0004F827 /* View */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -756,20 +754,6 @@
 				06BC573221DEF2F40004F827 /* BTSBaseTableViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		06BC572221DEF16A0004F827 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		06BC572321DEF16A0004F827 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		06BC572521DEF1AB0004F827 /* Resource */ = {
