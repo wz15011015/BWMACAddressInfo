@@ -8,8 +8,10 @@
 
 CFBundleDisplayName = "MAC Address";
 
-NSCameraUsageDescription = "App need access to your camera so you can use services such as scan codes, take photos, and more.";
-NSPhotoLibraryUsageDescription = "App need access to your albums so you can use services such as scan codes, picture saves, image uploads, and more.";
+NSCameraUsageDescription = "App need access to your camera so you can use the photo service normally.";
+NSPhotoLibraryUsageDescription = "App need access to your albums so you can use the image upload service normally.";
 
 NSLocationWhenInUseUsageDescription = "Allow your location information to be used to get the name of the WiFi you are connected to.";
 NSLocationAlwaysAndWhenInUseUsageDescription = "Allow your location information to be used to get the name of the WiFi you are connected to.";
+
+NSLocalNetworkUsageDescription = "Allow the use of local network permissions to obtain the MAC address of this device for display and information inquiries.";

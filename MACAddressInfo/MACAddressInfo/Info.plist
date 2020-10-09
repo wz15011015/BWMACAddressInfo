@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>17</string>
+	<string>22</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -28,13 +28,15 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>App need access to your camera so you can use services such as scan codes, take photos, and more.</string>
+	<string>App need access to your camera so you can use the photo service normally.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Allow the use of local network permissions to obtain the MAC address of this device for display and information inquiries.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Allow your location information to be used to get the name of the WiFi you are connected to.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow your location information to be used to get the name of the WiFi you are connected to.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>App need access to your albums so you can use services such as scan codes, picture saves, image uploads, and more.</string>
+	<string>App need access to your albums so you can use the image upload service normally.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
