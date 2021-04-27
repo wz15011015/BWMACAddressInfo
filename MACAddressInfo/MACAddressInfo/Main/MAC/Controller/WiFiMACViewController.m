@@ -30,6 +30,9 @@
 @property (nonatomic, strong) OUIModel *resultOUI; // 搜索到的OUI
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, assign) CLAuthorizationStatus locationAuthorizationStatus;
+
+@property (nonatomic, assign) BOOL didClickScan; // 是否点击了扫描按钮
 
 @end
 
@@ -83,6 +86,8 @@
 
 // 数据初始化
 - (void)loadData {
+    self.didClickScan = NO;
+    
     // 注册网络状态发生变化的代理
     [NetworkManagerInstance addDelegate:self];
     
@@ -91,7 +96,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
         
         // 适配iOS 13: 判断定位权限,如果未授权,则提示用户去授权定位,以便获取WiFi名称
-        CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+        CLAuthorizationStatus status = self.locationAuthorizationStatus;
         if (status == kCLAuthorizationStatusNotDetermined) { // 未决定时,去请求定位权限
             [self.locationManager requestWhenInUseAuthorization];
         } else if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted) { // 拒绝或受限制时,弹窗提示
@@ -122,8 +127,6 @@
     // 获取WiFi的名称和MAC地址
     self.wifiName = [WiFiManagerInstance wifiName];
     self.wifiMACAddress = [WiFiManagerInstance wifiMacAddress];
-//    self.wifiName = @"CMCC-BTStudio";
-//    self.wifiMACAddress = @"D4:40:F0:9A:02:A8";
     if (IS_NULL_STRING(self.wifiMACAddress)) {
         self.scanHintLabel.text = BTSLocalizedString(@"Failed to get WiFi network card address", nil);
         return;
@@ -164,11 +167,35 @@
     }
 }
 
+/// 自动请求临时开启一次精确定位权限
+///
+/// - 当前为精确定位时, 不去请求
+///
+/// - 当前不是精确定位时, 去请求
+///
+- (void)autoRequestTemporaryFullAccuracyAuthorization {
+    if (@available(iOS 14.0, *)) {
+        BOOL isFullAccuracy = self.locationManager.accuracyAuthorization == CLAccuracyAuthorizationFullAccuracy;
+        if (isFullAccuracy) {
+            NSLog(@"WiFiMAC_当前为精确定位状态,不需要申请临时开启一次精确位置权限.");
+        } else {
+            NSLog(@"WiFiMAC_当前为模糊定位状态,需要向用户申请临时开启一次精确位置权限.");
+            // 向用户申请临时开启一次精确位置权限
+            [self.locationManager requestTemporaryFullAccuracyAuthorizationWithPurposeKey:@"WantsToGetWiFiSSID"];
+        }
+    }
+}
+
 
 #pragma mark - Events
 
 - (IBAction)clickScanView {
+    self.didClickScan = YES;
+    
     [self startAnimationTransformRotationZ];
+    
+    [self autoRequestTemporaryFullAccuracyAuthorization];
+    
     [self performSelector:@selector(scanFinish) withObject:nil afterDelay:1.8];
 }
 
@@ -233,6 +260,8 @@
 
 // 定位授权状态发生改变
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    NSLog(@"WiFiMAC_当前定位权限状态: %d", status);
+    
     /// iOS 13 之前:
     /// kCLAuthorizationStatusAuthorizedAlways :  始终允许
     /// kCLAuthorizationStatusAuthorizedWhenInUse :  仅在使用应用期间
@@ -244,11 +273,41 @@
     /// kCLAuthorizationStatusDenied :  不允许
     if (kCLAuthorizationStatusNotDetermined == status) { // 正在请求权限,未决定
             
-    } else if (kCLAuthorizationStatusRestricted == status || kCLAuthorizationStatusDenied == status) { // 拒绝定位
+    } else if (kCLAuthorizationStatusRestricted == status ||
+               kCLAuthorizationStatusDenied == status) { // 拒绝定位
         // 用户拒绝时,则弹窗提示
         [self showLocationAuthorizationAlert];
     } else { // 允许定位
-        
+        if (self.didClickScan) {
+            [self scanFinish];
+        }
+    }
+}
+
+/// 定位授权状态发生改变
+- (void)locationManagerDidChangeAuthorization:(CLLocationManager *)manager API_AVAILABLE(ios(14.0)) {
+    // 1. 定位权限状态
+    CLAuthorizationStatus status = manager.authorizationStatus;
+    NSLog(@"WiFiMAC_当前定位权限状态:: %d", status);
+    
+    if (kCLAuthorizationStatusNotDetermined == status) { // 正在请求权限,未决定
+            
+    } else if (kCLAuthorizationStatusRestricted == status ||
+               kCLAuthorizationStatusDenied == status) { // 拒绝定位
+        // 用户拒绝时,则弹窗提示
+        [self showLocationAuthorizationAlert];
+    } else { // 允许定位
+        if (self.didClickScan) {
+            [self scanFinish];
+        }
+    }
+    
+    // 2. 精确定位权限状态
+    CLAccuracyAuthorization accuracyStatus = manager.accuracyAuthorization;
+    if (accuracyStatus == CLAccuracyAuthorizationFullAccuracy) {
+        NSLog(@"WiFiMAC_精确定位已开启");
+    } else {
+        NSLog(@"WiFiMAC_精确定位未开启");
     }
 }
 
@@ -257,9 +316,16 @@
 
 /** 进入前台时调用此函数 */
 - (void)applicationWillEnterForeground {
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    CLAuthorizationStatus status = self.locationAuthorizationStatus;
     if (status == kCLAuthorizationStatusNotDetermined) { // 未决定时,去请求定位权限
         [self.locationManager requestWhenInUseAuthorization];
+    } else if (kCLAuthorizationStatusRestricted == status ||
+               kCLAuthorizationStatusDenied == status) { // 拒绝定位
+        
+    } else { // 允许定位
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self autoRequestTemporaryFullAccuracyAuthorization];
+        });
     }
 }
 
@@ -281,6 +347,16 @@
     return _locationManager;
 }
 
+- (CLAuthorizationStatus)locationAuthorizationStatus {
+    // 适配iOS 14
+    CLAuthorizationStatus status = kCLAuthorizationStatusNotDetermined;
+    if (@available(iOS 14.0, *)) {
+        status = self.locationManager.authorizationStatus;
+    } else {
+        status = [CLLocationManager authorizationStatus];
+    }
+    return status;
+}
 
 /*
 #pragma mark - Navigation

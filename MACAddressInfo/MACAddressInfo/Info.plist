@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>42</string>
+	<string>55</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -33,6 +33,11 @@
 	<string>Allow the use of local network permissions to obtain the MAC address of this device for display and information inquiries.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Allow your location information to be used to get the name of the WiFi you are connected to.</string>
+	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
+	<dict>
+		<key>WantsToGetWiFiSSID</key>
+		<string>Your precise location will be used to get the current Wi-Fi SSID.</string>
+	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow your location information to be used to get the name of the WiFi you are connected to.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

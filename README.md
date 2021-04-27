@@ -16,6 +16,11 @@
 
 ## Commits
 
+**2021.04.27**
+
+- 适配 iOS 14：获取手机所连接的WiFi信息时，需要请求精确定位权限。
+- 调用```[self.locationManager requestTemporaryFullAccuracyAuthorizationWithPurposeKey:@"WantsToGetWiFiSSID"];```以临时开启一次精确定位权限。
+
 **2019.10.19**
 
 - 适配 iOS 13：获取手机所连接的WiFi信息时，需要请求位置权限。
