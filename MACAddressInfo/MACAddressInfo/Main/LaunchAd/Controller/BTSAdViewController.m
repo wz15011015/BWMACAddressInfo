@@ -53,6 +53,10 @@
 - (void)loadUI {
     self.skipButtonTop.constant = 15 + BTSNavBarHeightAdded;
     
+    // 使用数字等宽字体,防止数字变化时的跳动问题
+    UIFont *font = [UIFont monospacedDigitSystemFontOfSize:14 weight:UIFontWeightRegular];
+    self.skipButton.titleLabel.font = font;
+    
     // 添加阴影效果
     self.adMarkLabel.layer.shadowColor = [UIColor blackColor].CGColor;
     self.adMarkLabel.layer.shadowOffset = CGSizeMake(0,0);
