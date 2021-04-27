@@ -8,12 +8,13 @@
 
 #import "FAQViewController.h"
 #import <WebKit/WebKit.h>
+#import <SafariServices/SafariServices.h>
 
 static NSString *WKWebViewLoadingKey = @"loading";
 static NSString *WKWebViewTitleKey = @"title";
 static NSString *WKWebViewProgressKey = @"estimatedProgress";
 
-@interface FAQViewController () <WKNavigationDelegate>
+@interface FAQViewController () <WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, SFSafariViewControllerDelegate>
 
 @property (nonatomic, strong) WKWebView *wkWebView;
 @property (nonatomic, strong) CALayer *progresslayer;
@@ -42,6 +43,38 @@ static NSString *WKWebViewProgressKey = @"estimatedProgress";
     NSString *filePath = [[NSBundle mainBundle] pathForResource:self.htmlFileName ofType:@"html"];
     NSString *htmlStr = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     [self.wkWebView loadHTMLString:htmlStr baseURL:nil];
+}
+
+- (void)openInSafariWithLink:(NSString *)urlString {
+    if (!urlString) {
+        return;
+    }
+    
+    SFSafariViewController *safariVC = nil;
+    if (@available(iOS 11.0, *)) {
+        SFSafariViewControllerConfiguration *config = [[SFSafariViewControllerConfiguration alloc] init];
+        config.entersReaderIfAvailable = NO;
+        config.barCollapsingEnabled = YES;
+        
+        safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:urlString] configuration:config];
+    } else {
+        safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:urlString] entersReaderIfAvailable:NO];
+    }
+    safariVC.delegate = self;
+//    safariVC.preferredBarTintColor = THEME_COLOR;
+    safariVC.preferredControlTintColor = THEME_COLOR;
+    [self presentViewController:safariVC animated:YES completion:nil];
+}
+
+
+#pragma mark - SFSafariViewControllerDelegate
+
+- (void)safariViewController:(SFSafariViewController *)controller didCompleteInitialLoad:(BOOL)didLoadSuccessfully {
+    NSLog(@"SafariViewController did complete initial load = %@", (didLoadSuccessfully ? @"YES" : @"NO"));
+}
+
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
+    NSLog(@"点击了\"完成\"按钮或侧滑返回, 退出了 SFSafariViewController");
 }
 
 
@@ -96,6 +129,11 @@ static NSString *WKWebViewProgressKey = @"estimatedProgress";
  */
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     NSLog(@"加载完毕");
+    
+    // 网页加载完成的时候再注入JS代码, 要不然还没加载完时就可以点击了, 就不能调用我们的代码了!
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"FAQ_WhatIsOUI" ofType:@"js"];
+    NSString *jsStr = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    [webView evaluateJavaScript:jsStr completionHandler:nil];
 }
 
 /**
@@ -116,6 +154,62 @@ static NSString *WKWebViewProgressKey = @"estimatedProgress";
     NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
     // 告诉服务器信任证书
     completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
+}
+
+
+#pragma mark - WKUIDelegate
+
+// Alert 警告框
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+    NSLog(@"alert message: %@", message);
+    
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"调用alert提示框" preferredStyle:UIAlertControllerStyleAlert];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        completionHandler();
+//    }]];
+//    [self presentViewController:alert animated:YES completion:nil];
+}
+
+// Confirm 确认框
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler {
+    NSLog(@"confirm message: %@", message);
+    
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确认框" message:@"调用confirm提示框" preferredStyle:UIAlertControllerStyleAlert];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        completionHandler(YES);
+//    }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        completionHandler(NO);
+//    }]];
+//    [self presentViewController:alert animated:YES completion:NULL];
+}
+
+- (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(nullable NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * __nullable result))completionHandler {
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"输入框" message:@"调用输入框" preferredStyle:UIAlertControllerStyleAlert];
+//    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+//        textField.textColor = [UIColor blackColor];
+//    }];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        completionHandler([[alert.textFields lastObject] text]);
+//    }]];
+//
+//    [self presentViewController:alert animated:YES completion:NULL];
+}
+
+
+#pragma mark - WKScriptMessageHandler
+
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    NSLog(@"WKScriptMessageHandler: %@, name: %@, body: %@", message, message.name, message.body);
+    
+    // 这里可以通过方法的名称 message.name 处理多组交互
+    // body只支持 NSNumber, NSString, NSDate, NSArray, NSDictionary 和 NSNull类型
+    if ([message.name isEqualToString:@"click_url"]) {
+        if ([message.body isKindOfClass:[NSString class]]) {
+            NSString *urlStr = message.body;
+            [self openInSafariWithLink:urlStr];
+        }
+    }
 }
 
 
@@ -164,13 +258,21 @@ static NSString *WKWebViewProgressKey = @"estimatedProgress";
         preference.minimumFontSize = 10; // 设置字体大小（最小的字体大小）
         preference.javaScriptEnabled = YES; // 是否支持JavaScript
         preference.javaScriptCanOpenWindowsAutomatically = NO; // 不通过用户交互，是否可以打开窗口
-        // 1.2 添加设置
+        
+        // 1.2 通过JS与webView内容交互
+        WKUserContentController *userContentController = [[WKUserContentController alloc] init];
+        // 网页中需要传递的参数是通过JS中的 click_url 方法来传递的
+        [userContentController addScriptMessageHandler:self name:@"click_url"];
+        
+        // 1.3 添加设置
         config.preferences = preference;
+        config.userContentController = userContentController;
         
         // 2. 创建WKWebView
         CGFloat webViewH = BTSHEIGHT - BTSNavBarHeightAdded - BTSTabBarHeightAdded;
         _wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, BTSWIDTH, webViewH) configuration:config];
         _wkWebView.navigationDelegate = self;
+//        _wkWebView.UIDelegate = self;
         _wkWebView.allowsBackForwardNavigationGestures = YES;
         _wkWebView.allowsLinkPreview = YES;
         

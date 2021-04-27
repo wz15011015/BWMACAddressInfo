@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060E53232637B5B7000357D9 /* FAQ_WhatIsOUI.js in Resources */ = {isa = PBXBuildFile; fileRef = 060E53222637B5B6000357D9 /* FAQ_WhatIsOUI.js */; };
 		061A35FD21E5BD0F0071099D /* BTSAdDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061A35FB21E5BD0F0071099D /* BTSAdDetailViewController.m */; };
 		061A35FE21E5BD0F0071099D /* BTSAdDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 061A35FC21E5BD0F0071099D /* BTSAdDetailViewController.xib */; };
 		0643A53421E596FE00FF8B15 /* JMDropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0643A53321E596FE00FF8B15 /* JMDropMenu.m */; };
@@ -142,6 +143,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060E53222637B5B6000357D9 /* FAQ_WhatIsOUI.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FAQ_WhatIsOUI.js; sourceTree = "<group>"; };
 		061A35FA21E5BD0F0071099D /* BTSAdDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTSAdDetailViewController.h; sourceTree = "<group>"; };
 		061A35FB21E5BD0F0071099D /* BTSAdDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTSAdDetailViewController.m; sourceTree = "<group>"; };
 		061A35FC21E5BD0F0071099D /* BTSAdDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BTSAdDetailViewController.xib; sourceTree = "<group>"; };
@@ -850,6 +852,7 @@
 			children = (
 				06DB129B21F8B1CB002B2003 /* FAQ_WhatIsMACAddress.html */,
 				06DB129F21F8BCA8002B2003 /* FAQ_WhatIsOUI.html */,
+				060E53222637B5B6000357D9 /* FAQ_WhatIsOUI.js */,
 			);
 			path = FAQHtml;
 			sourceTree = "<group>";
@@ -880,12 +883,12 @@
 			buildConfigurationList = 06BC570921DEEDBA0004F827 /* Build configuration list for PBXNativeTarget "MACAddressInfo" */;
 			buildPhases = (
 				2E383D7A372CE2D75FD68560 /* [CP] Check Pods Manifest.lock */,
+				BCA17C0121DF9B2D00CF4756 /* Build Version Auto-Increment */,
+				BCA17C0021DF9AAA00CF4756 /* Run Script Version Info */,
 				06BC56D921DEEDB80004F827 /* Sources */,
 				06BC56DA21DEEDB80004F827 /* Frameworks */,
 				06BC56DB21DEEDB80004F827 /* Resources */,
 				C533EC3851697D0526727CC0 /* [CP] Embed Pods Frameworks */,
-				BCA17C0121DF9B2D00CF4756 /* Build Version Auto-Increment */,
-				BCA17C0021DF9AAA00CF4756 /* Run Script Version Info */,
 			);
 			buildRules = (
 			);
@@ -939,7 +942,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = BTS;
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = BTStudio;
 				TargetAttributes = {
 					06BC56DC21DEEDB80004F827 = {
@@ -989,6 +992,7 @@
 			files = (
 				06DDB26E21F551EA0002AB89 /* CompanyOUIsCell.xib in Resources */,
 				0693E45A21F172DC00483E44 /* MoreCell.xib in Resources */,
+				060E53232637B5B7000357D9 /* FAQ_WhatIsOUI.js in Resources */,
 				0693E46621F1C90900483E44 /* OUIListViewController.xib in Resources */,
 				0644037421FEDB77007DD50A /* LaunchAnimations.plist in Resources */,
 				0693E46A21F1D3E000483E44 /* OUIInfoViewController.xib in Resources */,
@@ -1305,6 +1309,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1366,6 +1371,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1404,14 +1410,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = Q9DDP5YT6J;
+				DEVELOPMENT_TEAM = 9MVKH6YKY6;
 				INFOPLIST_FILE = MACAddressInfo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BTStudio.macAddressInfo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumlink.rec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MACAddressInfo/Main/Common/Model/MACAddressInfo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1430,14 +1436,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = Q9DDP5YT6J;
+				DEVELOPMENT_TEAM = 9MVKH6YKY6;
 				INFOPLIST_FILE = MACAddressInfo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BTStudio.macAddressInfo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lumlink.rec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MACAddressInfo/Main/Common/Model/MACAddressInfo-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
