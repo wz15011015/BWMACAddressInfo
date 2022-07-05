@@ -13,7 +13,7 @@
 
 /** 从.txt文件中解析OUI数据 */
 + (void)loadOUIDataFromTxt {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"oui" ofType:@"txt"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"oui_2022_07_05" ofType:@"txt"];
     NSString *txtContent = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSArray *arr = [txtContent componentsSeparatedByString:@"\r\n"];
     if (arr.count < 4) {
@@ -171,8 +171,11 @@
 
 /** 从.txt文件中统计OUI数据 */
 + (void)loadOUIDataStatisticsFromTxt {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"oui" ofType:@"txt"];
+    NSString *ouiTxtFileName = @"oui_2022_07_05";
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:ouiTxtFileName ofType:@"txt"];
     NSString *txtContent = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
     NSArray *arr = [txtContent componentsSeparatedByString:@"\r\n"];
     if (arr.count < 4) {
         return;
@@ -316,6 +319,185 @@
 //    for (int i = 0; i < citiesDic.allKeys.count; i++) {
 //        NSLog(@"city_\"%@\"", citiesDic.allKeys[i]);
 //    }
+}
+
+/// 从oui.txt文件中加载OUI数据
++ (void)loadOUIDataFromOUITXTFile {
+    NSString *ouiTxtFileName = @"oui_2022_07_05";
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:ouiTxtFileName ofType:@"txt"];
+    NSString *txtContent = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    // 注意: 每行结尾有两个字符"\r\n",即回车和换行
+    NSArray *arr = [txtContent componentsSeparatedByString:@"\r\n"];
+    /** 分割后的字符串数组示例:
+    "OUI/MA-L                                                    Organization                                 "
+    "company_id                                                  Organization                                 "
+    "                                                            Address                                      "
+    ""
+    "00-22-72   (hex)        American Micro-Fuel Device Corp."
+    "002272     (base 16)        American Micro-Fuel Device Corp."
+    "                2181 Buchanan Loop"
+    "                Ferndale  WA  98248"
+    "                US"
+    ""
+    */
+    if (arr.count < 4) {
+        return;
+    }
+    
+    // 从第四行开始为有效数据
+    int lineOne = 1;
+    int lineTwo = 2;
+    int lineThree = 3;
+    int lineFour = 4;
+    
+    int oui_id = 0;
+    NSString *oui = nil;
+    NSString *company = nil;
+    NSString *street = nil;
+    NSString *city = nil;
+    NSString *province = nil;
+    NSString *postCode = nil;
+    NSString *countryCode = nil;
+    
+    // 数据统计(公司/国家/省份(州)/城市)
+    NSMutableDictionary *companysDic = [NSMutableDictionary dictionary];
+    NSMutableDictionary *countryCodesDic = [NSMutableDictionary dictionary];
+    NSMutableDictionary *provincesDic = [NSMutableDictionary dictionary];
+    NSMutableDictionary *citiesDic = [NSMutableDictionary dictionary];
+    
+    NSArray *ouiArr = [arr subarrayWithRange:NSMakeRange(4, arr.count - 4)];
+    for (int i = 0; i < ouiArr.count; i++) {
+        NSString *text = ouiArr[i];
+        // 制表符 换成 空格
+        text = [text stringByReplacingOccurrencesOfString:@"\t" withString:@" "];
+        
+        NSString *lineOneStr = nil;
+        NSString *lineTwoStr = nil;
+        NSString *lineThreeStr = nil;
+        NSString *lineFourStr = nil;
+        
+        if (i == lineOne) {
+            //98E743     (base 16)  American Micro-Fuel Device Corp.
+            lineOneStr = text;
+            oui_id++;
+            
+            if (lineOneStr.length > 22) {
+                oui = [lineOneStr substringWithRange:NSMakeRange(0, 6)];
+                company = [lineOneStr substringWithRange:NSMakeRange(22, lineOneStr.length - 22)];
+            }
+            
+            if ([company isEqualToString:@"Private"]) { // 特殊情况
+                lineOne += 3;
+                lineTwo = lineOne + 1;
+                lineThree = lineOne + 2;
+                lineFour = lineOne + 3;
+                
+//                NSLog(@"Private:: oui_id:%d oui:%@ company:%@ street:%@ city:%@ province:%@ postCode:%@ countryCode:%@", oui_id, oui, company, street, city, province, postCode, countryCode);
+                
+                // 数据统计
+                company = IS_NULL_STRING(company) ? [NSString stringWithFormat:@"Private_company_null_%@", oui] : company;
+                countryCode = IS_NULL_STRING(countryCode) ? [NSString stringWithFormat:@"Private_%@", oui] : countryCode;
+                province = IS_NULL_STRING(province) ? @"province_null" : province;
+                city = IS_NULL_STRING(city) ? @"city_null" : city;
+                
+                [companysDic setValue:company forKey:company];
+                [countryCodesDic setValue:countryCode forKey:countryCode];
+                [provincesDic setValue:province forKey:province];
+                [citiesDic setValue:city forKey:city];
+                
+                
+                oui = nil;
+                company = nil;
+                street = nil;
+                city = nil;
+                province = nil;
+                postCode = nil;
+                countryCode = nil;
+            } else {
+                lineOne += 6;
+            }
+            
+        } else if (i == lineTwo) {
+            //    2181 Buchanan Loop
+            lineTwoStr = text;
+            
+            lineTwo += 6;
+            
+            if (text.length > 4) {
+                street = [lineTwoStr substringWithRange:NSMakeRange(4, lineTwoStr.length - 4)];
+            }
+            
+        } else if (i == lineThree) {
+            //    Ferndale  WA  98248
+            lineThreeStr = text;
+            
+            lineThree += 6;
+            
+            if (text.length > 4) {
+                NSString *addressInfo = [lineThreeStr substringWithRange:NSMakeRange(4, lineThreeStr.length - 4)];
+                NSArray *infoArr = [addressInfo componentsSeparatedByString:@"  "];
+                if (infoArr.count == 2) {
+                    city = infoArr[0];
+                    postCode = infoArr[1];
+                } else if (infoArr.count == 3) {
+                    city = infoArr[0];
+                    province = infoArr[1];
+                    postCode = infoArr[2];
+                }
+            }
+            
+        } else if (i == lineFour) {
+            //    US
+            lineFourStr = text;
+            
+            lineFour += 6;
+            
+            if (text.length > 4) {
+                countryCode = [lineFourStr substringWithRange:NSMakeRange(4, lineFourStr.length - 4)];
+            }
+            
+//            NSLog(@"Normal:: oui_id:%d oui:%@ company:%@ street:%@ city:%@ province:%@ postCode:%@ countryCode:%@", oui_id, oui, company, street, city, province, postCode, countryCode);
+            
+            // 数据统计
+            company = IS_NULL_STRING(company) ? [NSString stringWithFormat:@"Normal_company_null_%@", oui] : company;
+            countryCode = IS_NULL_STRING(countryCode) ? [NSString stringWithFormat:@"Normal_%@", oui] : countryCode;
+            province = IS_NULL_STRING(province) ? @"province_null" : province;
+            city = IS_NULL_STRING(city) ? @"city_null" : city;
+            
+            [companysDic setValue:company forKey:company];
+            [countryCodesDic setValue:countryCode forKey:countryCode];
+            [provincesDic setValue:province forKey:province];
+            [citiesDic setValue:city forKey:city];
+            
+            
+            oui = nil;
+            company = nil;
+            street = nil;
+            city = nil;
+            province = nil;
+            postCode = nil;
+            countryCode = nil;
+        }
+    }
+    
+    // 公司: 17437 (17438 = 17437 + 1(无效数据:Private))
+    for (int i = 0; i < companysDic.allKeys.count; i++) {
+        NSLog(@"company_\"%@\"", companysDic.allKeys[i]);
+    }
+    // 国家代码: 87 (222 = 87 + 135(无效数据))
+    for (int i = 0; i < countryCodesDic.allKeys.count; i++) {
+        NSLog(@"countryCode_%@", countryCodesDic.allKeys[i]);
+    }
+    // 省份(州): 2196 (8472 = 2196 + 6276(无效数据))
+    for (int i = 0; i < provincesDic.allKeys.count; i++) {
+        NSLog(@"province_\"%@\"", provincesDic.allKeys[i]);
+    }
+    // 城市: 6405 (8280 = 6405 + 1875(无效数据))
+    for (int i = 0; i < citiesDic.allKeys.count; i++) {
+        NSLog(@"city_\"%@\"", citiesDic.allKeys[i]);
+    }
 }
 
 

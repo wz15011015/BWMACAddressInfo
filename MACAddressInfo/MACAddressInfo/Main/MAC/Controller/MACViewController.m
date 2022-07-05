@@ -40,6 +40,7 @@
     
 //    [OUIDataTest loadOUIDataFromTxt];
 //    [OUIDataTest loadOUIDataStatisticsFromTxt];
+//    [OUIDataTest loadOUIDataFromOUITXTFile];
 //    [OUIDataTest OUIDataDebugForCompany];
 //    [OUIDataTest OUIDataCountEachCompanyOUIList];
 }

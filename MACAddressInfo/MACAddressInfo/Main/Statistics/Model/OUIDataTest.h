@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 从.txt文件中统计OUI数据 */
 + (void)loadOUIDataStatisticsFromTxt;
 
+/// 从oui.txt文件中加载OUI数据
++ (void)loadOUIDataFromOUITXTFile;
+
 + (void)OUIDataDebug;
 
 + (void)OUIDataDebugForCompany;

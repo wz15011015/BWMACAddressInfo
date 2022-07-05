@@ -110,6 +110,7 @@
 		06DB129921F86164002B2003 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DB129721F86163002B2003 /* FAQViewController.m */; };
 		06DB129D21F8B1CB002B2003 /* FAQ_WhatIsMACAddress.html in Resources */ = {isa = PBXBuildFile; fileRef = 06DB129B21F8B1CB002B2003 /* FAQ_WhatIsMACAddress.html */; };
 		06DB12A021F8BCA8002B2003 /* FAQ_WhatIsOUI.html in Resources */ = {isa = PBXBuildFile; fileRef = 06DB129F21F8BCA8002B2003 /* FAQ_WhatIsOUI.html */; };
+		06DCD2FF28741DF0009A5C2D /* oui_2022_07_05.txt in Resources */ = {isa = PBXBuildFile; fileRef = 06DCD2FE28741DF0009A5C2D /* oui_2022_07_05.txt */; };
 		06DD4965235FE90100441D23 /* CompanyLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DD4963235FE90100441D23 /* CompanyLocationViewController.m */; };
 		06DD4966235FE90100441D23 /* CompanyLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06DD4964235FE90100441D23 /* CompanyLocationViewController.xib */; };
 		06DDB26E21F551EA0002AB89 /* CompanyOUIsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06DDB26C21F551EA0002AB89 /* CompanyOUIsCell.xib */; };
@@ -305,6 +306,7 @@
 		06DB129721F86163002B2003 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
 		06DB129B21F8B1CB002B2003 /* FAQ_WhatIsMACAddress.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = FAQ_WhatIsMACAddress.html; sourceTree = "<group>"; };
 		06DB129F21F8BCA8002B2003 /* FAQ_WhatIsOUI.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = FAQ_WhatIsOUI.html; sourceTree = "<group>"; };
+		06DCD2FE28741DF0009A5C2D /* oui_2022_07_05.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = oui_2022_07_05.txt; sourceTree = "<group>"; };
 		06DD4962235FE90100441D23 /* CompanyLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanyLocationViewController.h; sourceTree = "<group>"; };
 		06DD4963235FE90100441D23 /* CompanyLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyLocationViewController.m; sourceTree = "<group>"; };
 		06DD4964235FE90100441D23 /* CompanyLocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyLocationViewController.xib; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 				0644037321FEDB77007DD50A /* LaunchAnimations.plist */,
 				064B69B921E89F52007D739F /* OUI_CountryCode.plist */,
 				06AAA5FC22153A5000BCE36C /* BTSMACOUI.sqlite */,
+				06DCD2FE28741DF0009A5C2D /* oui_2022_07_05.txt */,
 				06DB129A21F8B1CB002B2003 /* FAQHtml */,
 				0693E45B21F19D9500483E44 /* LottieAnimation */,
 			);
@@ -1014,6 +1017,7 @@
 				BC2B857C21F4A84E00639F3E /* CompanyWebsiteViewController.xib in Resources */,
 				0693E47F21F2233500483E44 /* CompanyInfoViewController.xib in Resources */,
 				0654746521F94F9200F997A4 /* animation_square_checkbox.json in Resources */,
+				06DCD2FF28741DF0009A5C2D /* oui_2022_07_05.txt in Resources */,
 				06AAA5FD22153A5000BCE36C /* BTSMACOUI.sqlite in Resources */,
 				06DB129D21F8B1CB002B2003 /* FAQ_WhatIsMACAddress.html in Resources */,
 				06DB129821F86164002B2003 /* FAQViewController.xib in Resources */,

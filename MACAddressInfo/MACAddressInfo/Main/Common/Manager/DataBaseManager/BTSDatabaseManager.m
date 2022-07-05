@@ -121,11 +121,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
     
     // 归档ouiList
     NSData *ouiListData = nil;
-    if (@available(iOS 11.0, *)) {
+//    if (@available(iOS 11.0, *)) {
         ouiListData = [NSKeyedArchiver archivedDataWithRootObject:company.ouiList requiringSecureCoding:YES error:nil];
-    } else {
-        ouiListData = [NSKeyedArchiver archivedDataWithRootObject:company.ouiList];
-    }
+//    } else {
+//        ouiListData = [NSKeyedArchiver archivedDataWithRootObject:company.ouiList];
+//    }
     // 操作: 插入一条记录
     NSString *execute = [NSString stringWithFormat:@"insert into %@(company_id, name, street, city, province, country, postCode, countryCode, name_zh, street_zh, city_zh, province_zh, country_zh, ouiList, ouiCount, ouiRank) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", MACOUICompanyTableName];
     BOOL success = [self.database executeUpdate:execute, company.company_id, company.name, company.street, company.city, company.province, company.country, company.postCode, company.countryCode, company.name_zh, company.street_zh, company.city_zh, company.province_zh, company.country_zh, ouiListData, company.ouiCount, company.ouiRank];
@@ -215,11 +215,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         NSArray *ouiListArr = value;
         // 归档ouiList
         NSData *ouiListData = nil;
-        if (@available(iOS 11.0, *)) {
+//        if (@available(iOS 11.0, *)) {
             ouiListData = [NSKeyedArchiver archivedDataWithRootObject:ouiListArr requiringSecureCoding:YES error:nil];
-        } else {
-            ouiListData = [NSKeyedArchiver archivedDataWithRootObject:ouiListArr];
-        }
+//        } else {
+//            ouiListData = [NSKeyedArchiver archivedDataWithRootObject:ouiListArr];
+//        }
         success = [self.database executeUpdate:execute, ouiListData, company_id];
         
     } else {
@@ -286,11 +286,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         
         // 解档ouiList
         NSArray *ouiList = [NSArray array];
-        if (@available(iOS 11.0, *)) {
-            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:ouiListData error:nil];
-        } else {
-            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
-        }
+//        if (@available(iOS 11.0, *)) {
+            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSArray class], [NSString class]]] fromData:ouiListData error:nil];
+//        } else {
+//            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
+//        }
         
         // Company
         CompanyModel *company = [[CompanyModel alloc] init];
@@ -367,11 +367,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         
         // 解档ouiList
         NSArray *ouiList = [NSArray array];
-        if (@available(iOS 11.0, *)) {
-            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:ouiListData error:nil];
-        } else {
-            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
-        }
+//        if (@available(iOS 11.0, *)) {
+            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSArray class], [NSString class]]] fromData:ouiListData error:nil];
+//        } else {
+//            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
+//        }
         
         // Company
         CompanyModel *company = [[CompanyModel alloc] init];
@@ -436,7 +436,7 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         //        CompanyModel *company = nil;
         //        // 解档CompanyModel
         //        if (@available(iOS 11.0, *)) {
-        //            company = [NSKeyedUnarchiver unarchivedObjectOfClass:[CompanyModel class] fromData:companyData error:nil];
+        //            company = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSArray class], [NSString class]]] fromData:companyData error:nil];
         //        } else {
         //            company = [NSKeyedUnarchiver unarchiveObjectWithData:companyData];
         //        }
@@ -463,11 +463,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         
         // 解档ouiList
         NSArray *ouiList = [NSArray array];
-        if (@available(iOS 11.0, *)) {
-            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:ouiListData error:nil];
-        } else {
-            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
-        }
+//        if (@available(iOS 11.0, *)) {
+            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSArray class], [NSString class]]] fromData:ouiListData error:nil];
+//        } else {
+//            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
+//        }
         
         // Company
         CompanyModel *company = [[CompanyModel alloc] init];
@@ -560,11 +560,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         
         // 解档ouiList
         NSArray *ouiList = [NSArray array];
-        if (@available(iOS 11.0, *)) {
-            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:ouiListData error:nil];
-        } else {
-            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
-        }
+//        if (@available(iOS 11.0, *)) {
+            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSArray class], [NSString class]]] fromData:ouiListData error:nil];
+//        } else {
+//            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
+//        }
         
         // Company
         CompanyModel *company = [[CompanyModel alloc] init];
@@ -636,11 +636,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         
         // 解档ouiList
         NSArray *ouiList = [NSArray array];
-        if (@available(iOS 11.0, *)) {
-            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:ouiListData error:nil];
-        } else {
-            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
-        }
+//        if (@available(iOS 11.0, *)) {
+            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSArray class], [NSString class]]] fromData:ouiListData error:nil];
+//        } else {
+//            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
+//        }
         
         CompanyModel *model = [[CompanyModel alloc] init];
         model.company_id = company_id;
@@ -705,11 +705,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         
         // 解档ouiList
         NSArray *ouiList = [NSArray array];
-        if (@available(iOS 11.0, *)) {
-            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:ouiListData error:nil];
-        } else {
-            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
-        }
+//        if (@available(iOS 11.0, *)) {
+            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSArray class], [NSString class]]] fromData:ouiListData error:nil];
+//        } else {
+//            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
+//        }
         
         CompanyModel *model = [[CompanyModel alloc] init];
         model.company_id = company_id;
@@ -816,11 +816,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         
         // 解档ouiList
         NSArray *ouiList = [NSArray array];
-        if (@available(iOS 11.0, *)) {
-            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:ouiListData error:nil];
-        } else {
-            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
-        }
+//        if (@available(iOS 11.0, *)) {
+            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSArray class], [NSString class]]] fromData:ouiListData error:nil];
+//        } else {
+//            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
+//        }
         
         CompanyModel *model = [[CompanyModel alloc] init];
         model.company_id = company_id;
@@ -916,11 +916,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         
         // 解档ouiList
         NSArray *ouiList = [NSArray array];
-        if (@available(iOS 11.0, *)) {
-            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:ouiListData error:nil];
-        } else {
-            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
-        }
+//        if (@available(iOS 11.0, *)) {
+            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSArray class], [NSString class]]] fromData:ouiListData error:nil];
+//        } else {
+//            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
+//        }
         
         // Company
         CompanyModel *company = [[CompanyModel alloc] init];
@@ -992,11 +992,11 @@ NSString *const MACOUICompanyTableName = @"MACOUICompanyTable"; // 公司表
         
         // 解档ouiList
         NSArray *ouiList = [NSArray array];
-        if (@available(iOS 11.0, *)) {
-            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:ouiListData error:nil];
-        } else {
-            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
-        }
+//        if (@available(iOS 11.0, *)) {
+            ouiList = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithArray:@[[NSArray class], [NSString class]]] fromData:ouiListData error:nil];
+//        } else {
+//            ouiList = [NSKeyedUnarchiver unarchiveObjectWithData:ouiListData];
+//        }
         
         CompanyModel *company = [[CompanyModel alloc] init];
         company.company_id = company_id;

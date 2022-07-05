@@ -20,7 +20,7 @@
  创建加密的FMDB数据库
  
  @param path 数据库路径
- @param encrytKey 加密密码
+ @param encryptKey 加密密码
  @return FMDB数据库
  */
 + (id)databaseWithPath:(NSString *)path encryptKey:(NSString *)encryptKey {
