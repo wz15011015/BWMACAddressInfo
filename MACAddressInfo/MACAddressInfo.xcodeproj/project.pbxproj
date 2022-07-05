@@ -886,9 +886,9 @@
 				BCA17C0121DF9B2D00CF4756 /* Build Version Auto-Increment */,
 				BCA17C0021DF9AAA00CF4756 /* Run Script Version Info */,
 				06BC56D921DEEDB80004F827 /* Sources */,
+				C533EC3851697D0526727CC0 /* [CP] Embed Pods Frameworks */,
 				06BC56DA21DEEDB80004F827 /* Frameworks */,
 				06BC56DB21DEEDB80004F827 /* Resources */,
-				C533EC3851697D0526727CC0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1160,7 +1160,6 @@
 				06ADEA2421F69D6200F26E58 /* OUICollectionCell.m in Sources */,
 				06BC573021DEF2DE0004F827 /* BTSTabBarViewController.m in Sources */,
 				0697D37A21E3477A0053AFA3 /* MACSearchBarView.m in Sources */,
-				0643A56021EF02650085FA3D /* BalloonMarker.swift in Sources */,
 				0697D37E21E355AC0053AFA3 /* OUIInfoCell.m in Sources */,
 				0643A54521E5976800FF8B15 /* WiFiManager.m in Sources */,
 				06DDB26F21F551EA0002AB89 /* CompanyOUIsCell.m in Sources */,
@@ -1173,7 +1172,6 @@
 				BCA889F321FB38D7002CD024 /* ImageCollectionCell.m in Sources */,
 				0693E47A21F2120B00483E44 /* CountryModel.m in Sources */,
 				0643A55221E597D100FF8B15 /* WiFiMACViewController.m in Sources */,
-				0643A56121EF02650085FA3D /* RadarMarkerView.swift in Sources */,
 				064D05AD21E7339D007F9439 /* MACTableHeaderView.m in Sources */,
 				0693E47E21F2233500483E44 /* CompanyInfoViewController.m in Sources */,
 				06DB128D21F84462002B2003 /* AboutViewController.m in Sources */,
@@ -1196,7 +1194,6 @@
 				0643A54321E5976800FF8B15 /* Reachability.m in Sources */,
 				06C50E4D235FFB3500C0913A /* CompanyAnnotation.m in Sources */,
 				06B4647E21E2F4E9002B468C /* NSString+Extension.m in Sources */,
-				0643A55F21EF02650085FA3D /* XYMarkerView.swift in Sources */,
 				06DB129121F84808002B2003 /* UIDevice+Extension.m in Sources */,
 				06B5A85921E041460087CBED /* BTSDatabaseManager.m in Sources */,
 				0693E44D21F15DA300483E44 /* StatisticsHeaderView.m in Sources */,
@@ -1209,6 +1206,9 @@
 				BCA889F721FB4439002CD024 /* UIAlertController+Extension.m in Sources */,
 				061A35FD21E5BD0F0071099D /* BTSAdDetailViewController.m in Sources */,
 				06BC573321DEF2F40004F827 /* BTSBaseTableViewController.m in Sources */,
+				0643A55F21EF02650085FA3D /* XYMarkerView.swift in Sources */,
+				0643A56021EF02650085FA3D /* BalloonMarker.swift in Sources */,
+				0643A56121EF02650085FA3D /* RadarMarkerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1410,14 +1410,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = 9MVKH6YKY6;
+				DEVELOPMENT_TEAM = 8UTC3S4RZK;
 				INFOPLIST_FILE = MACAddressInfo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lumlink.rec;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hadlinks.EverFlourish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MACAddressInfo/Main/Common/Model/MACAddressInfo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1436,14 +1436,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = 9MVKH6YKY6;
+				DEVELOPMENT_TEAM = 8UTC3S4RZK;
 				INFOPLIST_FILE = MACAddressInfo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lumlink.rec;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hadlinks.EverFlourish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MACAddressInfo/Main/Common/Model/MACAddressInfo-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

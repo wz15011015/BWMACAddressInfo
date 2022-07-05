@@ -22,6 +22,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self setupData];
+    [self setupUI];
+}
+
+
+#pragma mark - Data
+
+- (void)setupData {
+    
+}
+
+
+#pragma mark - UI
+
+- (void)setupUI {
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self customBackBarButtonItem];
 }
 

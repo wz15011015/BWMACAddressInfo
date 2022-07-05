@@ -26,6 +26,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self setupData];
+    [self setupUI];
+    
     // 创建导航控制器
     MACViewController *macVC = [[MACViewController alloc] init];
     [self addChildViewController:macVC tabBarTitle:BTSLocalizedString(@"Network Card Address", nil) navBarTitle:BTSLocalizedString(@"Network Card Address", nil) imageName:@"tab_bar_network_card" selectedImageName:@"tab_bar_network_card_selected"];
@@ -45,22 +48,63 @@
     }
 }
 
+
+#pragma mark - Data
+
+- (void)setupData {
+    
+}
+
+
+#pragma mark - UI
+
+- (void)setupUI {
+    [self setupTabBarAppearance];
+}
+
+/// 设置TabBar显示效果
+- (void)setupTabBarAppearance {
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, -0.5, SCREEN_WIDTH, 0.5)];
+//    view.backgroundColor = VCWhiteColor;
+//    [[UITabBar appearance] insertSubview:view atIndex:0];
+    
+    if (@available(iOS 13.0, *)) {
+        // 设置TabBarItem字体颜色
+        UITabBarItemAppearance *itemAppearance = [[UITabBarItemAppearance alloc] init];
+        itemAppearance.normal.titleTextAttributes = @{NSForegroundColorAttributeName : RGB(164, 164, 164)};
+        itemAppearance.selected.titleTextAttributes = @{NSForegroundColorAttributeName : THEME_COLOR};
+
+        UITabBarAppearance *appearance = [[UITabBarAppearance alloc] init];
+        appearance.stackedLayoutAppearance = itemAppearance;
+        appearance.backgroundColor = [UIColor whiteColor];
+//        appearance.backgroundImage = [UIImage imageNamed:@"navigation_bar_white"];
+//        appearance.shadowColor = [UIColor clearColor];
+        // 常规页面
+        self.tabBar.standardAppearance = appearance;
+        if (@available(iOS 15.0, *)) {
+            // 带Scroll滑动的页面
+            self.tabBar.scrollEdgeAppearance = appearance;
+        }
+    } else {
+        // 设置TabBar的颜色 及 是否半透明
+        [[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
+        [[UITabBar appearance] setTintColor:RGB(164, 164, 164)];
+        [[UITabBar appearance] setTranslucent:NO];
+    
+        // 设置TabBar的标题 字体 和 颜色
+        [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : RGB(164, 164, 164)} forState:UIControlStateNormal];
+        [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : THEME_COLOR} forState:UIControlStateSelected];
+    }
+}
+
 - (void)addChildViewController:(UIViewController *)childController tabBarTitle:(NSString *)tabBarTitle navBarTitle:(NSString *)navBarTitle imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName {
     BTSBaseNavigationViewController *nav = [[BTSBaseNavigationViewController alloc] initWithRootViewController:childController];
     nav.title = navBarTitle;
-    // navigationBar设置
-//    nav.navigationBar.translucent = NO;
-//    nav.navigationBar.tintColor = THEME_COLOR;
-//    [nav.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : THEME_COLOR}];
-//    nav.navigationBar.barTintColor = THEME_COLOR;
     
     // tabBarItem设置
     nav.tabBarItem.title = tabBarTitle;
     nav.tabBarItem.image = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     nav.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    // 设置文字颜色
-    [nav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: RGB(164, 164, 164)} forState:UIControlStateNormal];
-    [nav.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: THEME_COLOR} forState:UIControlStateSelected];
     
     [self addChildViewController:nav];
 }

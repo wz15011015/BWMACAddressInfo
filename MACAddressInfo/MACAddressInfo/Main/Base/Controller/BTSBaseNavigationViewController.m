@@ -22,19 +22,52 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self customNavigationBar];
+    [self setupData];
+    [self setupUI];
 }
 
-// 自定义导航栏属性
-- (void)customNavigationBar {
-    // 1. 导航栏背景颜色
-//    [UINavigationBar appearance].barTintColor = NAV_BAR_COLOR;
-    // 2. 导航栏标题的字体大小和颜色
-//    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:18], NSForegroundColorAttributeName:[UIColor blackColor]}];
-    // 3. 导航栏着色颜色
-//    [UINavigationBar appearance].tintColor = THEME_COLOR;
-    // 4. 导航栏是否为半透明效果
-    [UINavigationBar appearance].translucent = NO;
+
+#pragma mark - Data
+
+- (void)setupData {
+    
+}
+
+
+#pragma mark - UI
+
+- (void)setupUI {
+    [self setupNavBarAppearance];
+}
+
+/// 设置导航栏显示效果
+- (void)setupNavBarAppearance {
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
+        appearance.backgroundColor = [UIColor whiteColor];
+//        appearance.backgroundImage = [UIImage imageNamed:@"xxx"];
+//        appearance.shadowColor = [UIColor clearColor];
+//        appearance.titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18], NSForegroundColorAttributeName: RGB(164, 164, 164)};
+//        [appearance setBackIndicatorImage:[UIImage imageNamed:@"xx"] transitionMaskImage:[UIImage imageNamed:@"xxx"]];
+        // 常规页面
+        self.navigationBar.standardAppearance = appearance;
+        // 带Scroll滑动的页面
+        self.navigationBar.scrollEdgeAppearance = appearance;
+    } else {
+        // 设置导航栏 颜色 及 是否半透明
+        [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+        [[UINavigationBar appearance] setTintColor:RGB(164, 164, 164)];
+    //    [[UINavigationBar appearance] setTranslucent:NO];
+        
+        // 设置导航栏标题的 字体 和 颜色
+//        [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:18], NSForegroundColorAttributeName: RGB(164, 164, 164)}];
+
+        // 隐藏分割线
+//        [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+//
+//        [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"nav_icon_back_black"]];
+//        [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"nav_icon_back_black"]];
+    }
 }
 
 
