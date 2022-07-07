@@ -13,14 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 数据 调试/测试 类
 @interface OUIDataTest : NSObject
 
-/** 从.txt文件中解析OUI数据 */
-+ (void)loadOUIDataFromTxt;
-
-/** 从.txt文件中统计OUI数据 */
-+ (void)loadOUIDataStatisticsFromTxt;
-
 /// 从oui.txt文件中加载OUI数据
 + (void)loadOUIDataFromOUITXTFile;
+
+/// 从oui.txt文件中加载OUI统计数据
++ (void)loadOUIStatisticsDataFromOUITXTFile;
+
 
 + (void)OUIDataDebug;
 

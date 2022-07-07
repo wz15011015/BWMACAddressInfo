@@ -38,11 +38,12 @@
     
     [self loadUI];
     
-//    [OUIDataTest loadOUIDataFromTxt];
-//    [OUIDataTest loadOUIDataStatisticsFromTxt];
-//    [OUIDataTest loadOUIDataFromOUITXTFile];
-//    [OUIDataTest OUIDataDebugForCompany];
-//    [OUIDataTest OUIDataCountEachCompanyOUIList];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+////        [OUIDataTest loadOUIDataFromOUITXTFile];
+////        [OUIDataTest loadOUIStatisticsDataFromOUITXTFile];
+////        [OUIDataTest OUIDataDebugForCompany];
+////        [OUIDataTest OUIDataCountEachCompanyOUIList];
+//    });
 }
 
 - (void)viewWillAppear:(BOOL)animated {
